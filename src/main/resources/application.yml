@@ -1,0 +1,31 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: notification-userservice
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+    topics:
+      user-events:
+        name: user_events
+
+  mail:
+    host: localhost
+    port: 1025
+    properties:
+      mail:
+      smtp:
+      auth: false
+      starttls:
+      enable: false
+app:
+  mail:
+    from: noreply@my.com
+logging:
+  level:
+    ru/aston/ivantkachuk/notificationuserservice: DEBUG
+    org.springframework.kafka: WARN
+    org.springframework.mail: DEBUG
